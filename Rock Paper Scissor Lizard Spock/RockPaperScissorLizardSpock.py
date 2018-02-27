@@ -13,7 +13,7 @@ import random
 # as follows:
 #
 # 0 - rock
-# 1 - Spock
+# 1 - spock
 # 2 - paper
 # 3 - lizard
 # 4 - scissors
@@ -25,7 +25,7 @@ def name_to_number(name):
     # don't forget to return the result!
     if name == "rock":
         return 0
-    elif name == "Spock":
+    elif name == "spock":
         return 1
     elif name == "paper":
         return 2
@@ -42,7 +42,7 @@ def number_to_name(number):
     if number == 0:
         return "rock"
     elif number == 1:
-        return "Spock"
+        return "spock"
     elif number == 2:
         return "paper"
     elif number == 3:
@@ -77,14 +77,45 @@ def rpsls(player_choice):
     # use if/elif/else to determine winner, print winner message
     if diff == 0: # a tie!
         print("Player and computer tie!")
+        return 0
     elif diff < 3: # computer wins
         print("Computer wins!")
+        return -1
     else:
         print("Player wins!")
+        return 1        
         
 if __name__=="__main__":
-    rpsls("rock")
-    rpsls("Spock")
-    rpsls("paper")
-    rpsls("lizard")
-    rpsls("scissors")
+    Player = 0
+    Computer = 0
+    Tie = 0
+    Game = 0
+    while(1):
+        print("Select from Rock \t Paper \t Scissor \t Lizard \t Spock \n")  
+        choice = input("Enter your Choice in double qoutes \n")
+        winner = rpsls(choice.lower())
+    
+        Game += 1
+        if winner == "0":
+            Tie += 1
+        elif winner == "1":
+            Player += 1
+        else:
+            Computer += 1
+        play = input("Press E to exit or C to continue ")
+        if play == "E":
+            break
+        else:
+            print("Next Game")
+
+        print("Games Played" + Game)
+        
+        print("Player Won: " + Player +  "Computer Won:  " + Computer + "Tie: " + Tie)
+
+#Result
+print("Final Result")
+print("Player Won: " + Player +  "Computer Won:  " + Computer + "Tie: " + Tie)
+
+print("Thanks for playing")        
+        
+        
