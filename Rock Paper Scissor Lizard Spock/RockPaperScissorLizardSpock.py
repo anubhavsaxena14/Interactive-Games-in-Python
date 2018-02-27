@@ -57,7 +57,7 @@ def rpsls(player_choice):
     print " "
     
     # print out the message for the player's choice
-    print "Player chooses " + player_choice
+    print ("Player chooses " + player_choice)
     
     # convert the player's choice to player_number using the function name_to_number()
     player_number = name_to_number(player_choice)
@@ -69,7 +69,7 @@ def rpsls(player_choice):
     comp_choice = number_to_name(comp_number)
     
     # print out the message for computer's choice
-    print "Computer chooses " + comp_choice
+    print ("Computer chooses " + comp_choice)
     
     # compute difference of comp_number and player_number modulo five
     diff = (comp_number - player_number) % 5
@@ -81,12 +81,10 @@ def rpsls(player_choice):
         print "Computer wins!"
     else:
         print "Player wins!"
-    
-# test your code - LEAVE THESE CALLS IN YOUR SUBMITTED CODE
-rpsls("rock")
-rpsls("Spock")
-rpsls("paper")
-rpsls("lizard")
-rpsls("scissors")
-
-# always remember to check your completed program against the grading rubric
+        
+if __name__=="__main__":
+    rpsls("rock")
+    rpsls("Spock")
+    rpsls("paper")
+    rpsls("lizard")
+    rpsls("scissors")
