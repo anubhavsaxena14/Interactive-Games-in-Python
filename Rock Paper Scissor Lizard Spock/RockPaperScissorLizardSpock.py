@@ -31,10 +31,10 @@ def name_to_number(name):
         return 2
     elif name == "lizard":
         return 3    
-    elif name == "scissors":
+    elif name == "scissor":
         return 4
     else:
-        return "Unknown names!"
+        return -1
 
 def number_to_name(number):
     # convert number to a name using if/elif/else
@@ -48,7 +48,7 @@ def number_to_name(number):
     elif number == 3:
         return "lizard"    
     elif number == 4:
-        return "scissors"
+        return "scissor"
     else:
         return "Unknown number!"
 
@@ -61,6 +61,9 @@ def rpsls(player_choice):
     
     # convert the player's choice to player_number using the function name_to_number()
     player_number = name_to_number(player_choice)
+    if player_number == -1:
+        print("Wrong Input")
+        return -999
     
     # compute random guess for comp_number using random.randrange()
     comp_number = random.randrange(0, 5)
@@ -90,31 +93,33 @@ if __name__=="__main__":
     Computer = 0
     Tie = 0
     Game = 0
-    while(1):
+    while(True):
         print("Select from Rock \t Paper \t Scissor \t Lizard \t Spock \n")  
-        choice = input("Enter your Choice in double qoutes \n")
+        choice = input("Enter your Choice\n")
         winner = rpsls(choice.lower())
     
         Game += 1
-        if winner == "0":
+        if winner == 0:
             Tie += 1
-        elif winner == "1":
+        elif winner == 1:
             Player += 1
-        else:
+        elif winner == -1:
             Computer += 1
+        else:
+            break
         play = input("Press E to exit or C to continue ")
         if play == "E":
             break
         else:
             print("Next Game")
 
-        print("Games Played" + Game)
+        print("Games Played\t" + str(Game))
         
-        print("Player Won: " + Player +  "Computer Won:  " + Computer + "Tie: " + Tie)
+        print("Player Won: " + str(Player) +  "\tComputer Won:  " + str(Computer) + "\tTie: " + str(Tie))
 
 #Result
 print("Final Result")
-print("Player Won: " + Player +  "Computer Won:  " + Computer + "Tie: " + Tie)
+print("Player Won: " + str(Player) +  "\tComputer Won:  " + str(Computer) + "\tTie: " + str(Tie))
 
 print("Thanks for playing")        
         
